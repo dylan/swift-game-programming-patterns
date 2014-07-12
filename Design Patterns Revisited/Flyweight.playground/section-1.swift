@@ -24,6 +24,7 @@ enum TerrainSprite:String {
         River   = "river"
 }
 
+
 class Terrain {
     let movementCost:Int
     let isWater:Bool
@@ -38,7 +39,6 @@ class Terrain {
 }
 
 
-
 class World {
     var tiles = [[Terrain]]()
     
@@ -50,6 +50,7 @@ class World {
         generateTerrain()
     }
     
+
     func generateTerrain() {
 
         for x in 0 ..< MAP_WIDTH {
@@ -74,6 +75,7 @@ class World {
         tiles.insert(column, atIndex: x)
     }
     
+
     func getTile(x:Int, y:Int) -> Terrain {
         return tiles[x][y]
     }
@@ -116,6 +118,7 @@ game.start()
 // Get the cost of the bottom left tile.
 let cost = game.world.getTile(0, y: 0).movementCost
 
+
 func say(what:String) {
     println("It's a \(what) tile!")
 }
@@ -130,5 +133,5 @@ switch cost {
     default:
         say("foreign")
 }
-
+ 
 XCPShowView("Main View", game.view)
