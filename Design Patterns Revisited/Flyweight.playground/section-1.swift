@@ -33,7 +33,7 @@ class Terrain {
     init(movementCost:Int, isWater:Bool, texture:TerrainSprite) {
         self.movementCost = movementCost
         self.isWater = isWater
-        self.texture = SKTexture(imageNamed: texture.toRaw())
+        self.texture = SKTexture(imageNamed: texture.rawValue)
     }
     
 }
@@ -59,7 +59,7 @@ class World {
             for y in 0 ..< MAP_HEIGHT {
                 // Sprinkle some hills.
                 var tileType = arc4random_uniform(3) == 0 ? hillTerrain : grassTerrain
-                column += tileType
+                column.append(tileType)
             }
             
             tiles.append(column)
@@ -70,7 +70,7 @@ class World {
 
         var column = [Terrain]()
         for var y = 0; y < MAP_HEIGHT; y++ {
-            column += riverTerrain
+            column.append(riverTerrain)
         }
         tiles.insert(column, atIndex: x)
     }
