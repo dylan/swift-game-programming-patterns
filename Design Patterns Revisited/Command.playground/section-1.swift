@@ -86,7 +86,7 @@ class InputHandler: NSObject {
     let buttonA: Command
     let buttonB: Command
     
-    init() {
+    override init() {
         buttonX = QuitCommand()
         buttonY = FireCommand()
         buttonA = MoveLeftCommand()
